@@ -1,0 +1,63 @@
+.main {
+    border: 1em thin black;
+    padding: 1em;
+    margin: 2em;
+    background-color: aquamarine
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.todo-list {
+    text-align: center;
+    padding: 1em;
+    margin: 1em;
+
+}
+
+.text {
+    height: 4em;
+    width: 40em;
+    border: double;
+    border-radius: 1em;
+}
+
+.button {
+    height: 4em;
+    width: 7em;
+}
+
+#todo {
+    /* border: 1em solid black;    */
+    list-style-type: none;
+}
+
+li {
+    margin: 1em;
+    background-color: beige;
+}
+
+input[type=checkbox]:checked+label {
+    text-decoration: line-through;
+}
+
+li>button {
+    padding: 1em;
+    margin: 1em;
+}
+
+li>label {
+    font-size: 2em;
+    padding: 1em;
+    margin: 1em;
+}
+
+input[type="checkbox"] {
+    padding: 1em;
+    margin: 2em;
+    width: 2em;
+    height: 2em;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TypeAhead</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <form class="typeahead">
+            <input class="name" type="text" placeholder="Enter city name" oninput="search(this.value)">
+        </form>
+        <ul class="suggestions"></ul>
+    </div>
+    <script>
+        var endpoint =
+            "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+        var cities = [];
+        fetch(endpoint).then(blob => blob.json()).then(data => data.map(place => {
+            cities.push(place.city);
+        }));
+
+        function search(val) {
+            var suggestions = document.querySelector('.suggestions');
+            var _cities = cities.filter(city => {
+                var regex = new RegExp(val, 'gi');
+                return city.match(regex);
+            }).map(city => {
+                var pos = city.search(val);
+
+                var html =
+                    `<li><span>${city.substring(0,pos)}<mark>${city.substring(pos,val.length)}</mark>${city.substring(val.length,city.length+1)}</span></li>`;
+                return html;
+            }).join(" ");
+            suggestions.innerHTML = _cities;
+        }
+    </script>
+</body>
+
+</html>

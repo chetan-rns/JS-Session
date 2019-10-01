@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Tax COllector</h1>
+        <form>
+            <label>Bill Amount</label>
+            <input id="billamt" type="text" placeholder="Add bill amount here">
+            <button type="button" onclick="calculate()">Calculator</button>
+        </form>
+        <div id="totalamt">
+
+        </div>
+    </div>
+    <script>
+        function calculate() {
+            var billamt = new Number(document.getElementById("billamt").value);
+            var details = '';
+            var total = document.getElementById("totalamt");
+            total.style.display = 'block';
+            if (billamt == 0) {
+                details = `<label>Add your bill amount!</label>`;
+            } else {
+                var service = billamt * 0.1;
+                var gst = billamt * 0.05;
+                var tax = service + gst;
+                var final = billamt + tax;
+
+                details = `
+            <label>Service Charge(10%):<span id="service">${service.toFixed(2)}</span></label>
+            <br>
+            <label>GST(5%):<span id="gst">${gst.toFixed(2)}</span></label>
+            <br>
+            <label>Total Tax(10%):<span id="total">${tax.toFixed(2)}</span></label>
+            <br>
+            <label>Final Amount<span id="final">${final.toFixed(2)}</span></label>
+            `;
+            }
+
+            total.innerHTML = details;
+        }
+        document.getElementById("totalamt").style.display = 'none';
+    </script>
+</body>
+
+</html>
