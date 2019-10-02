@@ -1,6 +1,4 @@
-/*
-todoItem represents an item in a todo list
-*/
+// This class represents an item in a todoList
 class todoItem {
     content = "";
     checked = false;
@@ -11,8 +9,11 @@ class todoItem {
         this.id = id;
     }
 }
+
+// List of todoItems
 todoList = [];
 var todoForm = document.getElementById("form");
+
 // EventListener on form submission
 todoForm.addEventListener('submit', event => {
     event.preventDefault();
