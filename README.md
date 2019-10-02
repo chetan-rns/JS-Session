@@ -2,7 +2,7 @@
 This repository contains sample applications built during Javascript session.
 
 ## Assignment
-Todo-List : This application helps in maintaining a simple todo list.Implementation details are explained with specific comments.
+Todo-List : This application helps in maintaining a simple todo list. Implementation details are explained with specific comments.
 
 Features:
 1) Add a new item
